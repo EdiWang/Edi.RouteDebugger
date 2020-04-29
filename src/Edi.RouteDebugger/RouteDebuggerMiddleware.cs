@@ -20,7 +20,7 @@ namespace Edi.RouteDebugger
 
         public async Task Invoke(HttpContext context, IActionDescriptorCollectionProvider provider = null)
         {
-            if (context.Request.Path == "/anc-route-debugger")
+            if (context.Request.Path == "/route-debugger")
             {
                 if (null != provider)
                 {
