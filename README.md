@@ -38,6 +38,10 @@ if (env.IsDevelopment())
 - Open any page in your application
 - View response header
 
+![](https://raw.githubusercontent.com/EdiWang/AspNetCore-RouteDebuggerMiddleware/master/screenshot/Screenshot_1.png)
+
 ### View All Routes
 
 - Access ```/route-debugger``` from browser or postman
+
+![](https://raw.githubusercontent.com/EdiWang/AspNetCore-RouteDebuggerMiddleware/master/screenshot/Screenshot_2.png)
