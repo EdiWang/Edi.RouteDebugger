@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Edi Wang</Authors>
+    <Company>edi.wang</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/EdiWang/AspNetCore-RouteDebuggerMiddleware</PackageProjectUrl>
+    <PackageTags>ASP.NET Core, .NET Core, Route, MVC, Endpoint</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
