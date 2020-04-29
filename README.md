@@ -20,6 +20,17 @@ We need something similar in .NET Core, with a few differences:
 
 ```
 
+### Adding the Middleware
+
+> Recommend use in development environment ONLY
+
+```csharp
+if (env.IsDevelopment())
+{
+    app.UseRouteDebugger();
+}
+```
+
 ### View Current Route
 
 - Open any page in your application
