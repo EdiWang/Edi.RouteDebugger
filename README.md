@@ -1,5 +1,7 @@
 # ASP.NET Core RouteDebugger Middleware
 
+![.NET Core](https://github.com/EdiWang/AspNetCore-RouteDebuggerMiddleware/workflows/.NET%20Core/badge.svg)
+
 Show current route info and all routes in an ASP.NET Core application
 
 ## Background
@@ -17,7 +19,7 @@ We need something similar in .NET Core, with a few differences:
 ### Install From NuGet
 
 ```bash
-
+dotnet add package Edi.RouteDebugger
 ```
 
 ### Adding the Middleware
