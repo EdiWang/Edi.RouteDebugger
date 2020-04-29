@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edi.RouteDebugger", "Edi.RouteDebugger\Edi.RouteDebugger.csproj", "{0C3EBB69-CE6A-404C-94C1-5CCCDA4C3390}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebApp", "SampleWebApp\SampleWebApp.csproj", "{E8A05AD3-DC5A-4A6B-B98D-2B7A253AB114}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0C3EBB69-CE6A-404C-94C1-5CCCDA4C3390}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C3EBB69-CE6A-404C-94C1-5CCCDA4C3390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C3EBB69-CE6A-404C-94C1-5CCCDA4C3390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A05AD3-DC5A-4A6B-B98D-2B7A253AB114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A05AD3-DC5A-4A6B-B98D-2B7A253AB114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A05AD3-DC5A-4A6B-B98D-2B7A253AB114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A05AD3-DC5A-4A6B-B98D-2B7A253AB114}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
