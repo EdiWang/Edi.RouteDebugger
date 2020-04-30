@@ -24,13 +24,14 @@ namespace Edi.RouteDebugger
             {
                 if (null != provider)
                 {
-                    var routes = provider.ActionDescriptors.Items.Select(x => new {
+                    var routes = provider.ActionDescriptors.Items.Select(x => new
+                    {
                         Action = x.RouteValues["Action"],
                         Controller = x.RouteValues["Controller"],
-                        Name = x.AttributeRouteInfo?.Name,
-                        Template = x.AttributeRouteInfo?.Template,
+                        x.AttributeRouteInfo?.Name,
+                        x.AttributeRouteInfo?.Template,
                         Contraint = x.ActionConstraints
-                    }).ToList();
+                    }).ToArray();
 
                     var routesJson = JsonSerializer.Serialize(routes);
 
@@ -61,11 +62,17 @@ namespace Edi.RouteDebugger
             await new StreamReader(context.Response.Body).ReadToEndAsync();
             context.Response.Body.Seek(0, SeekOrigin.Begin);
 
-            var rd = context.GetRouteData();
-            if (null != rd && rd.Values.Any())
+            var routeData = context.GetRouteData();
+            if (null != routeData)
             {
-                var rdJson = JsonSerializer.Serialize(rd.Values);
-                context.Response.Headers["current-route"] = rdJson;
+                // Each call of RouteData.Values property will create a new array-object, so cache the values here in order to reduce memory use & GC.
+                // Details see: https://github.com/dotnet/aspnetcore/blob/master/src/Http/Http.Abstractions/src/Routing/RouteValueDictionary.cs
+                var routeDataValues = routeData.Values;
+                if (routeDataValues.Count > 0)
+                {
+                    var rdJson = JsonSerializer.Serialize(routeDataValues);
+                    context.Response.Headers["current-route"] = rdJson;
+                }
             }
 
             await responseBody.CopyToAsync(originalBodyStream);
