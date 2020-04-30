@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Edi.RouteDebugger;
+using Microsoft.AspNetCore.Builder;
 
-namespace Edi.RouteDebugger
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class RouteDebuggerExtensions
     {
