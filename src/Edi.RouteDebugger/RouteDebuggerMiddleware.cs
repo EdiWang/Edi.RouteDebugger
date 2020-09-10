@@ -34,7 +34,7 @@ namespace Edi.RouteDebugger
                         Contraint = x.ActionConstraints
                     }).ToArray();
 
-                    var routesJson = JsonSerializer.Serialize(routes);
+                    var routesJson = JsonSerializer.Serialize(routes, new JsonSerializerOptions() { WriteIndented = true });
 
                     context.Response.ContentType = "application/json";
                     return context.Response.WriteAsync(routesJson, Encoding.UTF8);
