@@ -60,7 +60,8 @@ namespace Edi.RouteDebugger
             await _next(context);
 
             context.Response.Body.Seek(0, SeekOrigin.Begin);
-            await new StreamReader(context.Response.Body).ReadToEndAsync();
+            using var streamReader = new StreamReader(context.Response.Body);
+            await streamReader.ReadToEndAsync();
             context.Response.Body.Seek(0, SeekOrigin.Begin);
 
             var routeData = context.GetRouteData();
