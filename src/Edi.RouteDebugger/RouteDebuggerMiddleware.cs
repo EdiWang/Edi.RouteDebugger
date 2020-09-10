@@ -18,7 +18,7 @@ namespace Edi.RouteDebugger
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context, IActionDescriptorCollectionProvider provider = null)
+        public Task Invoke(HttpContext context, IActionDescriptorCollectionProvider provider = null)
         {
             if (context.Request.Path == "/route-debugger")
             {
@@ -37,16 +37,16 @@ namespace Edi.RouteDebugger
                     var routesJson = JsonSerializer.Serialize(routes);
 
                     context.Response.ContentType = "application/json";
-                    await context.Response.WriteAsync(routesJson, Encoding.UTF8);
+                    return context.Response.WriteAsync(routesJson, Encoding.UTF8);
                 }
                 else
                 {
-                    await context.Response.WriteAsync("IActionDescriptorCollectionProvider is null", Encoding.UTF8);
+                    return context.Response.WriteAsync("IActionDescriptorCollectionProvider is null", Encoding.UTF8);
                 }
             }
             else
             {
-                await SetCurrentRouteInfo(context);
+                return SetCurrentRouteInfo(context);
             }
         }
 
