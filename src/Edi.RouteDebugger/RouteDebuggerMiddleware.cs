@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -28,6 +28,7 @@ namespace Edi.RouteDebugger
                     {
                         Action = x.RouteValues["Action"],
                         Controller = x.RouteValues["Controller"],
+                        Page = x.RouteValues["Page"],
                         x.AttributeRouteInfo?.Name,
                         x.AttributeRouteInfo?.Template,
                         Contraint = x.ActionConstraints
