@@ -26,6 +26,8 @@ dotnet add package Edi.RouteDebugger
 
 > Recommend use in development environment ONLY
 
+> If you are using the Developer Exception Page middleware, put this middleware BEFORE the call to `app.UseDeveloperExceptionPage()` as the exception page would not work otherwise.
+
 ```csharp
 if (env.IsDevelopment())
 {
