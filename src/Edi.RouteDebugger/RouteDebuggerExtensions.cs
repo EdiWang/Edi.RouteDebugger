@@ -5,10 +5,9 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class RouteDebuggerExtensions
     {
-        public static IApplicationBuilder UseRouteDebugger(this IApplicationBuilder app)
+        public static IApplicationBuilder UseRouteDebugger(this IApplicationBuilder app, string path = "/route-debugger")
         {
-            app.UseMiddleware<RouteDebuggerMiddleware>();
-            return app;
+            return app.UseMiddleware<RouteDebuggerMiddleware>(path);
         }
     }
 }

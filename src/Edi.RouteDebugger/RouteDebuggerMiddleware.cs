@@ -12,15 +12,17 @@ namespace Edi.RouteDebugger
     public class RouteDebuggerMiddleware
     {
         private readonly RequestDelegate _next;
+        private readonly string _path;
 
-        public RouteDebuggerMiddleware(RequestDelegate next)
+        public RouteDebuggerMiddleware(RequestDelegate next, string path)
         {
             _next = next;
+            _path = path;
         }
 
         public Task Invoke(HttpContext context, IActionDescriptorCollectionProvider provider = null)
         {
-            if (context.Request.Path == "/route-debugger")
+            if (context.Request.Path == _path)
             {
                 if (null != provider)
                 {
