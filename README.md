@@ -26,10 +26,21 @@ dotnet add package Edi.RouteDebugger
 
 > Recommend use in development environment ONLY
 
+> If you are using the Developer Exception Page middleware, put this middleware BEFORE the call to `app.UseDeveloperExceptionPage()` as the exception page would not work otherwise.
+
 ```csharp
 if (env.IsDevelopment())
 {
     app.UseRouteDebugger();
+}
+```
+
+You can also use an overload to specify custom path where the route debugger will be available, for example:
+
+```csharp
+if (env.IsDevelopment())
+{
+    app.UseRouteDebugger("/tools/route-debugger");
 }
 ```
 
@@ -42,6 +53,6 @@ if (env.IsDevelopment())
 
 ### View All Routes
 
-- Access ```/route-debugger``` from browser or postman
+- Access `/route-debugger` or your custom path from browser or postman
 
 ![](https://raw.githubusercontent.com/EdiWang/AspNetCore-RouteDebuggerMiddleware/master/screenshot/Screenshot_2.png)

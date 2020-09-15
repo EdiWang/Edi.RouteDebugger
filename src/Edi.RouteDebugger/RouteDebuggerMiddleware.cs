@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -12,15 +12,17 @@ namespace Edi.RouteDebugger
     public class RouteDebuggerMiddleware
     {
         private readonly RequestDelegate _next;
+        private readonly string _path;
 
-        public RouteDebuggerMiddleware(RequestDelegate next)
+        public RouteDebuggerMiddleware(RequestDelegate next, string path)
         {
             _next = next;
+            _path = path;
         }
 
-        public async Task Invoke(HttpContext context, IActionDescriptorCollectionProvider provider = null)
+        public Task Invoke(HttpContext context, IActionDescriptorCollectionProvider provider = null)
         {
-            if (context.Request.Path == "/route-debugger")
+            if (context.Request.Path == _path)
             {
                 if (null != provider)
                 {
@@ -28,24 +30,25 @@ namespace Edi.RouteDebugger
                     {
                         Action = x.RouteValues["Action"],
                         Controller = x.RouteValues["Controller"],
+                        Page = x.RouteValues["Page"],
                         x.AttributeRouteInfo?.Name,
                         x.AttributeRouteInfo?.Template,
                         Contraint = x.ActionConstraints
                     }).ToArray();
 
-                    var routesJson = JsonSerializer.Serialize(routes);
+                    var routesJson = JsonSerializer.Serialize(routes, new JsonSerializerOptions() { WriteIndented = true });
 
                     context.Response.ContentType = "application/json";
-                    await context.Response.WriteAsync(routesJson, Encoding.UTF8);
+                    return context.Response.WriteAsync(routesJson, Encoding.UTF8);
                 }
                 else
                 {
-                    await context.Response.WriteAsync("IActionDescriptorCollectionProvider is null", Encoding.UTF8);
+                    return context.Response.WriteAsync("IActionDescriptorCollectionProvider is null", Encoding.UTF8);
                 }
             }
             else
             {
-                await SetCurrentRouteInfo(context);
+                return SetCurrentRouteInfo(context);
             }
         }
 
@@ -59,7 +62,8 @@ namespace Edi.RouteDebugger
             await _next(context);
 
             context.Response.Body.Seek(0, SeekOrigin.Begin);
-            await new StreamReader(context.Response.Body).ReadToEndAsync();
+            using var streamReader = new StreamReader(context.Response.Body);
+            await streamReader.ReadToEndAsync();
             context.Response.Body.Seek(0, SeekOrigin.Begin);
 
             var routeData = context.GetRouteData();
