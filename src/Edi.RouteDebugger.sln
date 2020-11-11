@@ -3,14 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edi.RouteDebugger", "Edi.RouteDebugger\Edi.RouteDebugger.csproj", "{0C3EBB69-CE6A-404C-94C1-5CCCDA4C3390}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edi.RouteDebugger", "Edi.RouteDebugger\Edi.RouteDebugger.csproj", "{0C3EBB69-CE6A-404C-94C1-5CCCDA4C3390}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebApp", "SampleWebApp\SampleWebApp.csproj", "{E8A05AD3-DC5A-4A6B-B98D-2B7A253AB114}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApp", "SampleWebApp\SampleWebApp.csproj", "{E8A05AD3-DC5A-4A6B-B98D-2B7A253AB114}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D47F1AD7-C4BE-47C6-BEAF-D4A1FE4F1A76}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitattributes = ..\.gitattributes
 		..\.gitignore = ..\.gitignore
+		..\.github\workflows\dotnetcore.yml = ..\.github\workflows\dotnetcore.yml
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 	EndProjectSection
