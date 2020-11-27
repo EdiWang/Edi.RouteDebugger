@@ -28,9 +28,9 @@ namespace Edi.RouteDebugger
                 {
                     var routes = provider.ActionDescriptors.Items.Select(x => new
                     {
-                        Action = x.RouteValues["Action"],
-                        Controller = x.RouteValues["Controller"],
-                        Page = x.RouteValues["Page"],
+                        Action = x.RouteValues.ContainsKey("Action") ? x.RouteValues["Action"] : null,
+                        Controller = x.RouteValues.ContainsKey("Controller") ? x.RouteValues["Controller"] : null,
+                        Page = x.RouteValues.ContainsKey("Page") ? x.RouteValues["Page"] : null,
                         x.AttributeRouteInfo?.Name,
                         x.AttributeRouteInfo?.Template,
                         Contraint = x.ActionConstraints
