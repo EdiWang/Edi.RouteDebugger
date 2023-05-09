@@ -33,7 +33,7 @@ namespace Edi.RouteDebugger
                         Page = x.RouteValues.ContainsKey("Page") ? x.RouteValues["Page"] : null,
                         x.AttributeRouteInfo?.Name,
                         x.AttributeRouteInfo?.Template,
-                        Contraint = x.ActionConstraints
+                        Constraint = x.ActionConstraints
                     }).ToArray();
 
                     var routesJson = JsonSerializer.Serialize(routes, new JsonSerializerOptions() { WriteIndented = true });
