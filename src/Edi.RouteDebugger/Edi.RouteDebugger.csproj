@@ -1,17 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
-    <Authors>Edi Wang</Authors>
-    <Company>edi.wang</Company>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/EdiWang/AspNetCore-RouteDebuggerMiddleware</PackageProjectUrl>
-    <PackageTags>ASP.NET Core, .NET Core, Route, MVC, Razor Pages, Endpoint</PackageTags>
-    <Version>1.6.0</Version>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <Version>1.6.1</Version>
+        <AssemblyName>Edi.RouteDebugger</AssemblyName>
+        <RootNamespace>Edi.RouteDebugger</RootNamespace>
+        <IsTestProject>false</IsTestProject>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IsPackable>true</IsPackable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Company>edi.wang</Company>
+        <Product>RouteDebugger</Product>
+        <Authors>Edi Wang</Authors>
+        <Description>Nuget package of 'RouteDebugger' provided by Edi</Description>
+        <PackageId>Edi.RouteDebugger</PackageId>
+        <PackageTags>ASP.NET Core, .NET Core, Route, MVC, Razor Pages, Endpoint</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/EdiWang/AspNetCore-RouteDebuggerMiddleware</PackageProjectUrl>
+        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    </PropertyGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
 </Project>
