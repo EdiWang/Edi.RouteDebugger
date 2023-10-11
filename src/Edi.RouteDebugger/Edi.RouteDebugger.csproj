@@ -1,17 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
     <Authors>Edi Wang</Authors>
     <Company>edi.wang</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/EdiWang/AspNetCore-RouteDebuggerMiddleware</PackageProjectUrl>
     <PackageTags>ASP.NET Core, .NET Core, Route, MVC, Razor Pages, Endpoint</PackageTags>
-    <Version>1.6.0</Version>
+    <Description>Show current route info and all routes in an ASP.NET Core application</Description>
+    <Version>1.7.0</Version>
+    <PackageIcon>edi-logo-blue.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\img\edi-logo-blue.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>

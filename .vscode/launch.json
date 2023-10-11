@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/src/SampleWebApp/bin/Debug/net7.0/SampleWebApp.dll",
+            "program": "${workspaceFolder}/src/SampleWebApp/bin/Debug/net8.0/SampleWebApp.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/SampleWebApp",
             "stopAtEntry": false,
