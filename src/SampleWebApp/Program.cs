@@ -11,6 +11,12 @@ if (app.Environment.IsDevelopment())
     app.UseRouteDebugger();
 }
 
+// Test for #3
+//app.UseExceptionHandler(a => a.Run(async context =>
+//{
+//    await context.Response.WriteAsync("anything");
+//}));
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

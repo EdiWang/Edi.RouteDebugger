@@ -18,6 +18,11 @@ public class HomeController(ILogger<HomeController> logger) : Controller
         return View();
     }
 
+    public IActionResult Exception()
+    {
+        throw new Exception("Test");
+    }
+
     public IActionResult Privacy()
     {
         return View();
