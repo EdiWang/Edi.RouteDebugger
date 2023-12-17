@@ -28,9 +28,9 @@ namespace Edi.RouteDebugger
                 {
                     var routes = provider.ActionDescriptors.Items.Select(x => new
                     {
-                        Action = x.RouteValues.ContainsKey("Action") ? x.RouteValues["Action"] : null,
-                        Controller = x.RouteValues.ContainsKey("Controller") ? x.RouteValues["Controller"] : null,
-                        Page = x.RouteValues.ContainsKey("Page") ? x.RouteValues["Page"] : null,
+                        Action = x.RouteValues.TryGetValue("Action", out var value) ? value : null,
+                        Controller = x.RouteValues.TryGetValue("Controller", out var routeValue) ? routeValue : null,
+                        Page = x.RouteValues.TryGetValue("Page", out var xRouteValue) ? xRouteValue : null,
                         x.AttributeRouteInfo?.Name,
                         x.AttributeRouteInfo?.Template,
                         Constraint = x.ActionConstraints
@@ -67,16 +67,14 @@ namespace Edi.RouteDebugger
             context.Response.Body.Seek(0, SeekOrigin.Begin);
 
             var routeData = context.GetRouteData();
-            if (null != routeData)
+
+            // Each call of RouteData.Values property will create a new array-object, so cache the values here in order to reduce memory use & GC.
+            // Details see: https://github.com/dotnet/aspnetcore/blob/master/src/Http/Http.Abstractions/src/Routing/RouteValueDictionary.cs
+            var routeDataValues = routeData.Values;
+            if (routeDataValues.Count > 0)
             {
-                // Each call of RouteData.Values property will create a new array-object, so cache the values here in order to reduce memory use & GC.
-                // Details see: https://github.com/dotnet/aspnetcore/blob/master/src/Http/Http.Abstractions/src/Routing/RouteValueDictionary.cs
-                var routeDataValues = routeData.Values;
-                if (routeDataValues.Count > 0)
-                {
-                    var rdJson = JsonSerializer.Serialize(routeDataValues);
-                    context.Response.Headers["current-route"] = rdJson;
-                }
+                var rdJson = JsonSerializer.Serialize(routeDataValues);
+                context.Response.Headers["x-aspnet-route"] = rdJson;
             }
 
             await responseBody.CopyToAsync(originalBodyStream);

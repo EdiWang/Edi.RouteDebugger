@@ -47,7 +47,7 @@ if (env.IsDevelopment())
 ### View Current Route
 
 - Open any page in your application
-- View response header
+- View response header `x-aspnet-route`
 
 ![](https://raw.githubusercontent.com/EdiWang/AspNetCore-RouteDebuggerMiddleware/master/screenshot/Screenshot_1.png)
 

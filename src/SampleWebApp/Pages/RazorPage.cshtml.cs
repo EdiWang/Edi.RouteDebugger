@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace SampleWebApp.Pages
+namespace SampleWebApp.Pages;
+
+public class RazorPageModel : PageModel
 {
-    public class RazorPageModel : PageModel
+    public void OnGet()
     {
-        public void OnGet()
-        {
-        }
     }
 }
