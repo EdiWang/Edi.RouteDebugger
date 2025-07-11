@@ -9,16 +9,10 @@ using Microsoft.AspNetCore.Routing;
 
 namespace Edi.RouteDebugger;
 
-public class RouteDebuggerMiddleware
+public class RouteDebuggerMiddleware(RequestDelegate next, string path)
 {
-    private readonly RequestDelegate _next;
-    private readonly string _path;
-
-    public RouteDebuggerMiddleware(RequestDelegate next, string path)
-    {
-        _next = next;
-        _path = path;
-    }
+    private readonly RequestDelegate _next = next;
+    private readonly string _path = path;
 
     public Task Invoke(HttpContext context, IActionDescriptorCollectionProvider provider = null)
     {
