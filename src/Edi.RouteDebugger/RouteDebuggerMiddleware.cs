@@ -55,22 +55,20 @@ public class RouteDebuggerMiddleware(RequestDelegate next, string path)
 
         await _next(context);
 
-        context.Response.Body.Seek(0, SeekOrigin.Begin);
-        using var streamReader = new StreamReader(context.Response.Body);
-        await streamReader.ReadToEndAsync();
-        context.Response.Body.Seek(0, SeekOrigin.Begin);
-
-        var routeData = context.GetRouteData();
-
-        // Each call of RouteData.Values property will create a new array-object, so cache the values here in order to reduce memory use & GC.
-        // Details see: https://github.com/dotnet/aspnetcore/blob/master/src/Http/Http.Abstractions/src/Routing/RouteValueDictionary.cs
-        var routeDataValues = routeData.Values;
-        if (routeDataValues.Count > 0)
+        // Only set headers if response hasn't started
+        if (!context.Response.HasStarted)
         {
-            var rdJson = JsonSerializer.Serialize(routeDataValues);
-            context.Response.Headers["x-aspnet-route"] = rdJson;
+            var routeData = context.GetRouteData();
+            var routeDataValues = routeData.Values;
+            if (routeDataValues.Count > 0)
+            {
+                var rdJson = JsonSerializer.Serialize(routeDataValues);
+                context.Response.Headers["x-aspnet-route"] = rdJson;
+            }
         }
 
+        context.Response.Body.Seek(0, SeekOrigin.Begin);
         await responseBody.CopyToAsync(originalBodyStream);
+        context.Response.Body = originalBodyStream;
     }
 }
