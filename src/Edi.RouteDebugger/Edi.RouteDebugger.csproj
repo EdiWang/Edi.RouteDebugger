@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
     <Authors>Edi Wang</Authors>
     <Company>edi.wang</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://github.com/EdiWang/AspNetCore-RouteDebuggerMiddleware</PackageProjectUrl>
     <PackageTags>ASP.NET Core, .NET Core, Route, MVC, Razor Pages, Endpoint</PackageTags>
     <Description>Show current route info and all routes in an ASP.NET Core application</Description>
-    <Version>1.10.0</Version>
+    <Version>1.11.0</Version>
     <PackageIcon>edi-logo-blue.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
