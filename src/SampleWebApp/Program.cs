@@ -8,7 +8,7 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseRouteDebugger();
+    app.UseRouteDebugger("/tools/route-debugger");
 }
 
 // Test for #3

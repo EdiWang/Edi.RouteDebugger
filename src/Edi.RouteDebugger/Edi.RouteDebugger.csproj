@@ -1,25 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
-    <Authors>Edi Wang</Authors>
-    <Company>edi.wang</Company>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/EdiWang/AspNetCore-RouteDebuggerMiddleware</PackageProjectUrl>
-    <PackageTags>ASP.NET Core, .NET Core, Route, MVC, Razor Pages, Endpoint</PackageTags>
-    <Description>Show current route info and all routes in an ASP.NET Core application</Description>
-    <Version>1.11.0</Version>
-    <PackageIcon>edi-logo-blue.png</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<Authors>Edi Wang</Authors>
+		<Company>edi.wang</Company>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/EdiWang/AspNetCore-RouteDebuggerMiddleware</PackageProjectUrl>
+		<PackageTags>ASP.NET Core, .NET Core, Route, MVC, Razor Pages, Endpoint</PackageTags>
+		<Description>Show current route info and all routes in an ASP.NET Core application</Description>
+		<Version>1.12.0</Version>
+		<PackageIcon>edi-logo-blue.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
-    <None Include="..\..\img\edi-logo-blue.png" Pack="true" PackagePath="\"/>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+		<None Include="..\..\img\edi-logo-blue.png" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 </Project>
